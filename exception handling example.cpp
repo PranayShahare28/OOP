@@ -1,38 +1,31 @@
 #include <iostream>
 using namespace std;
-class Student {
-    double totalMarks;
-    int subjects;
-   double e;
-public:
-    void setvalue() {
-        cout << "Enter the total marks obtained by the student: ";
-        cin >> totalMarks;
-        cout << "Enter the number of subjects: ";
-        cin >> subjects;
+             double calcavg(double totalm, int sub) {
+    if (sub == 0) {
+        throw sub;
     }
-    void showvalue() {
-        try {
-            if (subjects == 0) {
-                throw e;
-            } else {
-                double average = totalMarks / subjects;
-                cout << "The average marks of the student are: " << average << endl;
-            }
-        }
-        catch (double e) {
-            cout << "Error: The student has not registered any subjects." << endl;
-        }
-    }
-};
-int main() {
-    Student s1, s2;
-    cout << "\nStudent 1 " << endl;
-    s1.setvalue();
-    s1.showvalue();
-    cout << "\nStudent 2 " << endl;
-    s2.setvalue();
-    s2.showvalue();
-
-    return 0;
+    return totalm / sub;
 }
+int main() {
+    double totalm;
+    int sub;
+    int n;
+    cout<<"Enter the no.of students you want to enter: ";
+    cin>>n;
+    
+for(int i=0;i<n;i++){
+    cout << "Student " <<i+1<< endl;
+    cout << "Enter the total marks obtained by the student: ";
+    cin >> totalm;
+    cout << "Enter the number of subjects: ";
+    cin >> sub;
+                try {
+        double average = calcavg(totalm, sub);
+        cout << "The average marks of the student are: " << average << endl;
+    }
+    catch (int e) {
+        cout << "Error: The student has not registered any subjects." << endl;
+    }
+    cout << endl;
+};
+    return 0;
